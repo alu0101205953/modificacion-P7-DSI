@@ -1,3 +1,5 @@
+[![Tests](https://github.com/alu0101205953/modificacion-P7-DSI/actions/workflows/tests.yml/badge.svg)](https://github.com/alu0101205953/modificacion-P7-DSI/actions/workflows/tests.yml)
+
 Modificación Práctica 
 
 Desarrolle los siguientes ejercicios en un proyecto alojado en un nuevo repositorio de GitHub:
