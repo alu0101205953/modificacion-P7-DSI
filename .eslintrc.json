@@ -25,6 +25,7 @@
         "max-len": "off",
         "valid-jsdoc": "off",
         "brace-style": "off",
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "new-cap": "off"
     }
 }

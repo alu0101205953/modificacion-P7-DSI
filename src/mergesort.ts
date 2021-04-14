@@ -2,29 +2,42 @@ import {Strategy} from "./strategy";
 
 export class mergeSort implements Strategy {
   constructor() {}
-  merger(left: number[], right: number[]): number[] {
+  merge(left: number[], right: number[]): number[] {
+    let resultArray = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
 
-    const arr: number[] = [];
-  
-    while(left.length && right.length){
-      if(left[0] < right [0]){
-        arr.push(left.shift())
-      }else{
-        arr.push(right.shift())
+    // We will concatenate values into the resultArray in order
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (left[leftIndex] < right[rightIndex]) {
+        resultArray.push(left[leftIndex]);
+        leftIndex++; // move left array cursor
+      } else {
+        resultArray.push(right[rightIndex]);
+        rightIndex++; // move right array cursor
       }
     }
-  
-    return [...arr, ...left, ...right];
+
+    // We need to concat here because there will be one element remaining
+    // from either left OR the right
+    return resultArray
+            .concat(left.slice(leftIndex))
+            .concat(right.slice(rightIndex));
   }
 
   execute(data: number[]): number[] {
-    if(data.length < 2){
-      return data  // it means we no longer divide the data
-                    // into smaller chunks
+    if (data.length <= 1) {
+      return data;
     }
+    // In order to divide the array in half, we need to figure out the middle
+    const middle = Math.floor(data.length / 2);
 
-    const half: number = Math.floor(data.length / 2);
-    const left: number[] = data.splice( 0,half ); //left part of  the data
-  
-    return this.merger( mergeSort( left ), mergeSort( data ) );
+    // This is where we will be dividing the array into left and right
+    const left = data.slice(0, middle);
+    const right = data.slice(middle);
+
+    // Using recursion to combine the left and right
+    return this.merge(
+      this.execute(left), this.execute(right));
   }
+}
