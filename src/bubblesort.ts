@@ -1,7 +1,16 @@
 import {Strategy} from "./strategy";
 
+/**
+ * Class that implements the bubble sort algorithm
+ */
 export class bubbleSort implements Strategy {
   constructor() {}
+
+  /**
+   * Main method to order
+   * @param data Unsorted array
+   * @returns The ordered array
+   */
   execute(data: number[]): number[] {
     let length = data.length;
     for (let i = 0; i < length; i++) {

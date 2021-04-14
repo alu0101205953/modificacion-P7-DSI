@@ -1,5 +1,8 @@
 import {Strategy} from "./strategy";
 
+/**
+ * Class that implements a solver that uses different sort algorithms
+ */
 export class Solver {
   /**
    * The context has a reference to a Strategy object. It should only works

@@ -1,7 +1,17 @@
 import {Strategy} from "./strategy";
 
+/**
+ * Class that implements the merge sort algorithm
+ */
 export class mergeSort implements Strategy {
   constructor() {}
+
+  /**
+   * Auxiliar method to sort
+   * @param left left side of the array
+   * @param right right side of the array
+   * @returns the ordered array
+   */
   merge(left: number[], right: number[]): number[] {
     let resultArray = [];
     let leftIndex = 0;
@@ -17,14 +27,16 @@ export class mergeSort implements Strategy {
         rightIndex++; // move right array cursor
       }
     }
-
     // We need to concat here because there will be one element remaining
     // from either left OR the right
-    return resultArray
-            .concat(left.slice(leftIndex))
-            .concat(right.slice(rightIndex));
+    return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
   }
 
+  /**
+   * Main method of sorting
+   * @param data Unsorted array
+   * @returns ordered array
+   */
   execute(data: number[]): number[] {
     if (data.length <= 1) {
       return data;
